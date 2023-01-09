@@ -25,4 +25,8 @@ The function returns a tuple containing the equivalent Ethiopian year, month, an
 ## Examples
 
 ```python
->>>
+>>> from date_conversion import eth_to_greg, greg_to_eth
+>>> eth_to_greg(2011, 12, 21)
+(2019, 4, 9)
+>>> greg_to_eth(2019, 4, 9)
+(2011, 12, 21)
