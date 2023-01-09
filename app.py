@@ -25,7 +25,7 @@ def eth_to_greg(eth_year, eth_month, eth_day):
     elapsed_days -= leap_years
     
     # Add the number of days between the Ethiopian epoch (August 29, 8 CE) and the Gregorian epoch (January 1, 1 CE)
-    elapsed_days += 2660
+    elapsed_days += 3671
     
     # Calculate the Gregorian year and month
     greg_year, month_days = divmod(elapsed_days, 365)
@@ -47,7 +47,7 @@ def eth_to_greg(eth_year, eth_month, eth_day):
     
     return (greg_year, greg_month, greg_day)
 
-print(eth_to_greg(2015, 4, 30))
+
 def greg_to_eth(greg_year, greg_month, greg_day):
     """Convert a Gregorian date to an Ethiopian date.
     
@@ -71,7 +71,7 @@ def greg_to_eth(greg_year, greg_month, greg_day):
     elapsed_days += greg_day - 1
     
     # Subtract the number of days between the Ethiopian epoch (August 29, 8 CE) and the Gregorian epoch (January 1, 1 CE)
-    elapsed_days -=  3671
+    elapsed_days -= 3050
     
     # Calculate the number of 4-year leap years that have occurred
     leap_years, elapsed_days = divmod(elapsed_days, 1461)
@@ -83,11 +83,15 @@ def greg_to_eth(greg_year, greg_month, greg_day):
     eth_month = 1
     while elapsed_days >= eth_month_days[eth_month - 1]:
         elapsed_days -= eth_month_days[eth_month - 1]
-        eth_month += 1
+        # eth_month += 1
         
     # Calculate the Ethiopian day
     eth_day = elapsed_days + 1
     
     return (eth_year, eth_month, eth_day)
+
+
+
 print(greg_to_eth(2004, 1, 29))
+print(eth_to_greg(1996, 5, 21))
 
